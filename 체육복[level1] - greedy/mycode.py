@@ -31,4 +31,50 @@ def solution(n, lost, reserve):
     answer = n-(len(lost)-len(lost_reserve))
     return answer
 
-#3
+#3 - 성공! 근데 좀 더 괜찮은 방법이 있을텐데,,
+def solution(n, lost, reserve):
+    answer = 0
+    lost_reserve=[]
+    ll=len(lost)
+    lost=sorted(lost)
+    reserve=sorted(reserve)
+    #lost_set=set(lost)
+    #reserve_set=set(reserve)
+    #inter_lost_reserve = list(lost_set & reserve_set)
+    #if len(inter_lost_reserve)!=0:    
+    for i in lost:
+        if i in reserve:
+            lost_reserve.append(i)
+            reserve.remove(i)
+    new_lost=[x for x in lost if x not in lost_reserve]
+    #print(lost)
+    #print(reserve)
+    #print(lost_reserve)
+    for i in new_lost:
+        if i-1 in reserve:
+            lost_reserve.append(i)
+            reserve.remove(i-1)
+        elif i+1 in reserve:
+            lost_reserve.append(i)
+            reserve.remove(i+1)
+    #print(lost)
+    #print(reserve)
+    #print(lost_reserve)
+    answer = n-(ll-len(lost_reserve))
+    return answer
+
+'''
+[다른 사람 풀이]
+
+def solution(n, lost, reserve):
+    _reserve = [r for r in reserve if r not in lost]
+    _lost = [l for l in lost if l not in reserve]
+    for r in _reserve:
+        f = r - 1
+        b = r + 1
+        if f in _lost:
+            _lost.remove(f)
+        elif b in _lost:
+            _lost.remove(b)
+    return n - len(_lost)
+'''
