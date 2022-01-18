@@ -1,6 +1,7 @@
+#아직 미완성
 def diff_loc(target,right,left):
     if target-1:
-        
+
     return right,left
 
 def solution(numbers, hand):
