@@ -29,3 +29,31 @@ func solution(_ x:Int) -> Bool {
     return answer
 }
 //참조:https://hongdonghyun.github.io/2019/11/Swift-입력받은-숫자의-모든자리-숫자-합/
+
+/*
+다른 사람 풀이
+
+func solution(_ x:Int) -> Bool {
+    return x % String(x).reduce(0, {$0+Int(String($1))!}) == 0
+}
+
+func solution(_ x:Int) -> Bool {
+    var sum = String(x)
+        .map{Int(String($0))!}
+        .reduce(0, +)
+
+    return x % sum == 0
+}
+
+func solution(_ x:Int) -> Bool {
+    var sum: Int = 0
+    var val = x
+
+    while val > 0 {
+        sum += val % 10
+        val /= 10
+    }
+
+    return x % sum == 0
+}
+*/
