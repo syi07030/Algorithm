@@ -9,3 +9,11 @@ func solution(_ n:Int64) -> Int64 {
         return -1
     }
 }
+
+/* 다른 사람 풀이
+import Foundation
+func solution(_ n:Int64) -> Int64 {
+    let t = Int64(sqrt(Double(n)))
+    return t * t == n ? (t+1)*(t+1) : -1 //이런식으로 판별도 가능!
+}
+*/
