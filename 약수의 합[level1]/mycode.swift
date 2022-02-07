@@ -8,3 +8,12 @@ func solution(_ n:Int) -> Int {
     }
     return answer
 }
+
+/*다른 사람풀이
+func solution(_ n:Int) -> Int {   
+    guard n != 0 else { //guard:반드시 가져야할 조건 판별, if의 subset느낌
+        return 0
+    }
+    return Array(1...n).filter{n % $0 == 0}.reduce(0, +)
+}
+*/
