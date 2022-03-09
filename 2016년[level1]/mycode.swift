@@ -8,5 +8,5 @@ func solution(_ a:Int, _ b:Int) -> String {
         }
         sum += month[i]
     }
-    return week[(sum+b)%7-1]
+    return week[(sum+b-1)%7] //sum+b가 7일 경우에는 FRI가 나와야하는데 -1을 뒤로 빼버리면 week[-1]이 되어버려서 THU가 된다.
 }
