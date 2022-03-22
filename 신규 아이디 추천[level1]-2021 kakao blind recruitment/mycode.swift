@@ -1,63 +1,48 @@
+//최종 - 정규식, replacingOccurrences 진짜 중요!
 import Foundation
 
 func solution(_ new_id:String) -> String {
     //1step
     var answer = new_id.lowercased()
-    
+
     //2step
-    let pattern = "^[0-9a-z-_.]*$"
-    do {
-        let regex = try NSRegularExpression(pattern: pattern, options: [])
-        let result = regex.matches(in: answer, options: [], range: NSRange(location: 0, length: answer.count))
-    
-        let rexStrings = result.map { (element) -> String in
-            let range = Range(element.range, in: answer)!
-            return String(answer[range])
-        }
-        print(rexStrings)
-    } catch let error {
-        print(error.localizedDescription)
-    }
-    
-    /*
-    let pattern = "^[0-9a-z-_.]*$"
-    let regex = try? NSRegularExpression(pattern: pattern)
-    
-    if let arr = regex?.matches(in: answer, options: [], range: NSRange(location:0,length:answer.count)) {
-        let rexString = arr.map { (element) -> String in
-            let range = Range(element.range, in: answer)!
-            return String(answer[range])
-        }
-        print(rexString)
-    }else{
-        print("error")
-    }
-    */
+    answer = answer.replacingOccurrences(of:"[^0-9a-z._-]",with:"", options: .regularExpression)
+
     //3step
-    answer = answer.replacingOccurrences(of:".." , with: ".")
-    
+    answer = answer.replacingOccurrences(of:"([.])+",with:".", options: .regularExpression)
+
     //4step
-    answer=answer.trimmingCharacters(in:["."])
-    
+    answer = answer.trimmingCharacters(in: ["."])
+
     //5step
-    if answer.count == 0 {
+    if answer.count==0{
         answer = "a"
     }
-    
+
     //6step
-    if answer.count >= 16 {
-        answer = String(answer[..<answer.index(answer.startIndex, offsetBy:15)])
+    if answer.count>15{
+        answer = String(answer[..<answer.index(answer.startIndex,offsetBy:15)])
     }
-    answer=answer.trimmingCharacters(in:["."])
-    
-    
+    answer = answer.trimmingCharacters(in: ["."])
+
     //7step
-    if answer.count <= 2 {
-        let last = String(answer[answer.endIndex])
-        while(answer.count<3){
+    if answer.count<3{
+        let last = String(answer[answer.index(before:answer.endIndex)])
+        while answer.count<3{
             answer += last
         }
     }
-    
     return answer
 }
+
+/* 또다른 정규식 표현 확인
+do{
+        let regex = try NSRegularExpression(pattern:"[0-9a-z._-]", options:[])
+        let nsString = NSString(string: answer)
+        var results = regex.matches(in:answer, options:[],range:NSRange.init(location:0, length:nsString.length))
+        let a = results.map{nsString.substring(with: $0.range)}
+        answer = a.joined(separator:"")
+    }catch let error{
+        print("\(error.localizedDescription)")
+    }
+*/

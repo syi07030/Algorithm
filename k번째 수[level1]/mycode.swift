@@ -25,3 +25,16 @@ func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
 }
 
 //map 사용!
+
+//2022.3.22
+import Foundation
+
+func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
+    var answer = [Int]()
+    for i in commands{
+        var newArr = Array(array[(i[0]-1)...(i[1]-1)])
+        newArr.sort()
+        answer += [newArr[i[2]-1]]
+    }
+    return answer
+}
