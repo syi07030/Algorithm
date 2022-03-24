@@ -1,3 +1,7 @@
+//220323
+//프로그래머스 [level2] 영어 끝말잇기 문제
+//https://programmers.co.kr/learn/courses/30/lessons/12981
+
 import Foundation
 
 func solution(_ n:Int, _ words:[String]) -> [Int] {

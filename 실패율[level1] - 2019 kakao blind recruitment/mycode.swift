@@ -1,3 +1,7 @@
+//220321
+//프로그래머스 [level1] 실패율 문제
+//https://programmers.co.kr/learn/courses/30/lessons/42889
+
 import Foundation
 //N : 5
 //stages : [1,2,2,1,3]

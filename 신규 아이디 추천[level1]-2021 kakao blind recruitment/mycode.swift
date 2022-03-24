@@ -1,4 +1,8 @@
-//최종 - 정규식, replacingOccurrences 진짜 중요!
+//220322
+//프로그래머스 [level1] 신규 아이디 추천 문제
+//https://programmers.co.kr/learn/courses/30/lessons/72410
+
+//최종 - 정규식, replacingOccurrences 중요!
 import Foundation
 
 func solution(_ new_id:String) -> String {
