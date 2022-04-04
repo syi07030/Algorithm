@@ -1,3 +1,7 @@
+//220328
+//프로그래머스 [level2] 프렌즈4블록 문제
+//https://programmers.co.kr/learn/courses/30/lessons/17679
+
 func solution(_ m:Int, _ n:Int, _ board:[String]) -> Int {
     var pre_answer = 0
     var answer = 0

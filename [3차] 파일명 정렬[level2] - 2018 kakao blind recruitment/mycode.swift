@@ -1,3 +1,7 @@
+//220331
+//프로그래머스 [level2] 파일명 정렬 문제
+//https://programmers.co.kr/learn/courses/30/lessons/17686
+
 //파일명이 숫자로 끝날경우 number 부분 주의 필요
 func solution(_ files:[String]) -> [String] {
     var arr: Array<fileStruct> = []
