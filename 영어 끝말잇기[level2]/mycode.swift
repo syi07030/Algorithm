@@ -19,3 +19,24 @@ func solution(_ n:Int, _ words:[String]) -> [Int] {
 
     return answer
 }
+
+
+//2022.4.22
+import Foundation
+
+func solution(_ n:Int, _ words:[String]) -> [Int] {
+    var answer = [0,0]
+    var w = [String]()
+    for (i,word) in words.enumerated(){
+        if w.count == 0 {
+            w.append(word)
+        } else if w.contains(word) == false && w.last!.last! == word.first!{
+            w.append(word)
+        } else {
+            answer[0] = i%n+1
+            answer[1] = Int(ceil(Double(i+1)/Double(n)))
+            break
+        }
+    }
+    return answer
+}
