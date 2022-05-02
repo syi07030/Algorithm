@@ -1,7 +1,9 @@
+// test case 2,3,5,8,9,10,11,12,13 실패,,왜지
+
 import Foundation
-//n =6, wires = [[1, 4], [6, 3], [2, 5], [5, 1], [5, 3]], answer = 2
+
 func solution(_ n:Int, _ wires:[[Int]]) -> Int {
-    var answer = wires.count - 1
+    var answer = wires.count
     for i in stride(from:0, to:wires.count, by:1) {
         var a = [Int]()
         var b = [Int]()
@@ -35,9 +37,16 @@ func solution(_ n:Int, _ wires:[[Int]]) -> Int {
             b = Array(Set(b))
         }
 
-        //print(a,b,other)
-        if abs(a.count-b.count) < answer{
-            answer = abs(a.count-b.count)
+        var value = 0
+        if a.filter{b.contains($0)}.count > 0 {
+            value = n
+        } else {
+            value = abs(a.count-b.count)
+        }
+        
+        print(a,b,other)
+        if value < answer{
+            answer = value
             print(answer)
         }
     }
